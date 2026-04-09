@@ -49,8 +49,8 @@ Apart from my research, I enjoy playing Valorant, where I often take on the role
 
 
 # 📖 Educations
-- *Sept. 2024 - Present*, PhD, Huazhong University of Science and Technology.
 - *June 2020 - Sept. 2026*, Undergraduate, Huazhong University of Science and Technology. 
+- *Sept. 2024 - Present*, PhD, Huazhong University of Science and Technology.
 
 # 💬 Invited Talks
 - Mar. 2026: Invited Talk for Meshy. 
