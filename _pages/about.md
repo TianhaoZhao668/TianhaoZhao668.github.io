@@ -28,13 +28,13 @@ Apart from my research, I enjoy playing Valorant, where I often take on the role
 - *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  -->
 
 # 📝 Publications 
-
+**Equal contribution⋆  Corresponding author$\dagger$**
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ArxiV 2026</div><img src='images/lato.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [LATO: 3D Mesh Flow Matching with Structured TOpology Preserving LAtents](https://arxiv.org/pdf/2603.06357)
 
-**Tianhao Zhao***, Youjia Zhang*, Hang Long, Jinshen Zhang, Wenbing Li, Yang Yang, Gongbo Zhang, Jozef Hladký, Matthias Nießner, Wei Yang$\dagger$
+**Tianhao Zhao**\*, Youjia Zhang\*, Hang Long, Jinshen Zhang, Wenbing Li, Yang Yang, Gongbo Zhang, Jozef Hladký, Matthias Nießner, Wei Yang$\dagger$
 
 [**Paper**](https://arxiv.org/pdf/2603.06357) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
 -  We introduce LATO, a novel topology-preserving latent representation that enables scalable, flow matching-based synthesis of explicit 3D meshes.  
