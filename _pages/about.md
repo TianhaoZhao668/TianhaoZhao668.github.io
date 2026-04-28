@@ -17,7 +17,8 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-My name is Tianhao Zhao(赵天豪), a PhD Student at the School of Computer Science and Technology, Huazhong University of Science and Technology, in the HUST Media Lab, advised by Prof. Wei Yang. My research interest includes 3D mesh generation and diffusion.
+My name is Tianhao Zhao(赵天豪), a PhD Student at the School of Computer Science and Technology, Huazhong University of Science and Technology, in the [HUST Media Lab](https://media.hust.edu.cn/index.htm), advised by [Prof. Wei Yang](https://weiyang-hust.github.io). My research interest includes 3D mesh generation and diffusion.
+
 
 Apart from my research, I enjoy playing Valorant, where I often take on the role of the in-game leader (IGL)😂😂😂.
 <!-- My research interest includes neural machine translation and computer vision. I have published more than 100 papers at the top international AI conferences with total <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>). -->
@@ -49,7 +50,7 @@ Apart from my research, I enjoy playing Valorant, where I often take on the role
 
 
 # 📖 Educations
-- *June 2020 - Sept. 2026*, Undergraduate, Huazhong University of Science and Technology. 
+- *Sept 2020 - June. 2024*, Undergraduate, Huazhong University of Science and Technology. 
 - *Sept. 2024 - Present*, PhD, Huazhong University of Science and Technology.
 
 # 💬 Invited Talks
