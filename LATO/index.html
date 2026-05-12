@@ -1,0 +1,440 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="LATO: 3D Mesh Flow Matching with Structured TOpology Preserving LAtents. Accepted to ICML 2026.">
+  <meta name="keywords" content="LATO, MeshRipple, 3D mesh generation, flow matching, topology-preserving latent, vertex displacement field">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LATO | ICML 2026</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="./static/css/font.googleapis.css">
+
+  <script async src="./static/js/gtag.js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("js", new Date());
+    gtag("config", "G-PYVRSFMDRL");
+  </script>
+
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="./static/css/index.css?v=48">
+  <script src="./static/js/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script defer src="./static/js/inferenceTable.js?v=6"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [["\\(", "\\)"]],
+        displayMath: [["\\[", "\\]"]]
+      },
+      svg: {
+        fontCache: "global"
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script type="module">
+    import { addHighLightResult } from "./static/js/highLightResult.js?v=13";
+    window.addEventListener("DOMContentLoaded", addHighLightResult, { once: true });
+  </script>
+  <script type="module">
+    import { createGlbViewer } from "./static/js/GLBViewer.js?v=3";
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const cityViewer = document.getElementById("city-viewer");
+      const initCityViewer = () => {
+        if (!cityViewer || cityViewer.dataset.ready === "true") return;
+        cityViewer.dataset.ready = "true";
+        createGlbViewer(cityViewer, "./static/obj_room/city.glb", {
+          backgroundColor: 0xf1f5f3,
+          ambientIntensity: 0.85,
+          hemisphereIntensity: 1.15,
+          directionalIntensity: 1.25,
+          fov: 32,
+          cameraHeightMultiplier: 0.52,
+          cameraDistanceMultiplier: 1.55,
+          minDistance: 0.2,
+          maxDistance: 80,
+          autoRotateSpeed: 0.42
+        });
+      };
+
+      if (cityViewer && "IntersectionObserver" in window) {
+        const cityObserver = new IntersectionObserver((entries) => {
+          if (entries.some((entry) => entry.isIntersecting)) {
+            initCityViewer();
+            cityObserver.disconnect();
+          }
+        }, { rootMargin: "320px 0px" });
+        cityObserver.observe(cityViewer);
+      } else {
+        initCityViewer();
+      }
+    }, { once: true });
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__logo" href="#top" aria-label="LATO home">LATO</a>
+    <button type="button" class="site-header__toggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-header__nav" aria-label="Page sections">
+      <a href="#abstract">Abstract</a>
+      <a href="#paradigms">Paradigms</a>
+      <a href="#ideas" hidden>Key Ideas</a>
+      <a href="#vdf">VDF</a>
+      <a href="#method">Method</a>
+      <a href="#city">Application</a>
+      <a href="#results">Results</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="top">
+    <div class="container hero__layout">
+      <div class="hero__copy">
+        <p class="hero__venue"><strong>ICML 2026</strong></p>
+        <h1 class="hero__title"><span class="hero__title-mark">LATO</span>: 3D Mesh Flow Matching with Structured TOpology Preserving LAtents</h1>
+
+        <p class="hero__authors">
+          <span class="author-line">
+            <a href="https://scholar.google.com/citations?hl=zh-CN&user=4lTCZH4AAAAJ" target="_blank" rel="noopener">Tianhao Zhao</a><sup>*</sup>,
+            <a href="https://youjiazhang.github.io/" target="_blank" rel="noopener">Youjia Zhang</a><sup>*</sup>,
+            <a href="https://github.com/LoHhhha" target="_blank" rel="noopener">Hang Long</a>,
+            Jinshen Zhang,
+            <a href="https://scholar.google.com/scholar?q=%22Wenbing+Li%22+%22LATO%22" target="_blank" rel="noopener">Wenbing Li</a>,
+            Yang Yang,
+          </span>
+          <span class="author-line">
+            Gongbo Zhang,
+            <a href="https://scholar.google.com/citations?user=CDy95WwAAAAJ&hl=en" target="_blank" rel="noopener">Jozef Hladky</a>,
+            <a href="https://scholar.google.com/citations?user=eUtEs6YAAAAJ&hl=en" target="_blank" rel="noopener">Matthias Nie&szlig;ner</a>,
+            <a href="https://weiyang-hust.github.io/" target="_blank" rel="noopener">Wei Yang</a><sup>&dagger;</sup>
+          </span>
+        </p>
+        <p class="hero__affil">
+          <span>Huazhong University of Science and Technology &middot; Peking University</span>
+          <span>Independent Researcher &middot; Technical University of Munich</span>
+        </p>
+
+        <div class="actions">
+          <a class="actions__btn" href="./static/paper/2603.06357v1.pdf">
+            <i class="fas fa-file-pdf" aria-hidden="true"></i> Paper
+          </a>
+          <a class="actions__btn" href="https://arxiv.org/abs/2603.06357">
+            <i class="fas fa-external-link-alt" aria-hidden="true"></i> arXiv
+          </a>
+          <a class="actions__btn" href="#results">
+            <i class="fas fa-cube" aria-hidden="true"></i> Results
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section section--plain" id="abstract">
+    <div class="container narrow">
+      <header class="section__head section__head--center">
+        <h2 class="section__title">Abstract</h2>
+      </header>
+      <div class="prose abstract-prose">
+        <p>
+          In this paper, we introduce <span class="term">LATO</span>, a novel <span class="term">topology-preserving latent representation</span> that enables scalable, flow matching-based synthesis of explicit 3D meshes. LATO represents a mesh as a Vertex Displacement Field (VDF) anchored on surface, incorporating a sparse voxel Variational Autoencoder (VAE) to compress this explicit signal into a structured, topology-aware voxel latent.
+        </p>
+        <p>
+          To decapsulate the mesh, the VAE decoder progressively subdivides and prunes latent voxels to instantiate precise vertex locations. In the end, a dedicated connection head queries the voxel latent to predict edge connectivity between vertex pairs directly, allowing mesh topology to be recovered <span class="key-sentence">without isosurface extraction</span> or heuristic meshing.
+        </p>
+        <p>
+          For generative modeling, LATO adopts a <span class="term">two-stage flow matching</span> process, first synthesizing the structure voxels and subsequently refining the voxel-wise topology features. Compared to prior isosurface/triangle-based diffusion models and autoregressive generation approaches, LATO generates meshes with complex geometry, well-formed topology while being highly efficient in inference.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--muted" id="paradigms">
+    <div class="container">
+      <header class="section__head section__head--center">
+        <p class="section__eyebrow">Paradigm</p>
+        <h2 class="section__title">Topology-Preserving Generation</h2>
+      </header>
+
+      <figure class="figure figure--wide paradigm-figure">
+        <img src="./static/images/lato-vs-existing-paradigms.png" alt="Comparison between topology-agnostic implicit generation, explicit mesh generation, and LATO">
+        <figcaption>
+          <strong>LATO vs. Existing Paradigms.</strong>
+          Mainstream topology-agnostic approaches utilize vecset or voxel latents decoded into implicit fields, such as SDF, and rely on Marching Cubes for mesh extraction.
+          Explicit mesh generation methods adopt per-face latents via autoregressive or diffusion models, but suffer from severe memory bottlenecks.
+          LATO proposes T-Voxel latents to explicitly model topology, enabling direct generation of artist-friendly meshes.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section--plain" id="ideas" hidden>
+    <div class="container">
+      <header class="section__head section__head--center">
+        <p class="section__eyebrow">Core Design</p>
+        <h2 class="section__title">Key Ideas</h2>
+      </header>
+
+      <div class="idea-grid">
+        <article class="idea-card">
+          <span class="idea-card__icon"><i class="fas fa-project-diagram" aria-hidden="true"></i></span>
+          <h3>Topology as a first-class signal</h3>
+          <p>Instead of decoding an implicit field and extracting a mesh afterward, LATO exposes vertex and edge structure to the generative pipeline.</p>
+        </article>
+        <article class="idea-card">
+          <span class="idea-card__icon"><i class="fas fa-vector-square" aria-hidden="true"></i></span>
+          <h3>Dense VDF supervision</h3>
+          <p>Every sampled surface point carries displacements to the three vertices of its triangle, yielding continuous topology-aware supervision.</p>
+        </article>
+        <article class="idea-card">
+          <span class="idea-card__icon"><i class="fas fa-th" aria-hidden="true"></i></span>
+          <h3>T-Voxels</h3>
+          <p>The sparse voxel latent encodes not only surface presence, but also vertex distribution and connectivity priors for explicit meshes.</p>
+        </article>
+        <article class="idea-card">
+          <span class="idea-card__icon"><i class="fas fa-random" aria-hidden="true"></i></span>
+          <h3>Direct graph decoding</h3>
+          <p>A hierarchical decoder places vertices through subdivision and pruning, while a connection head predicts edges between vertex pairs.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--muted" id="vdf">
+    <div class="container split">
+      <div>
+        <header class="section__head">
+          <p class="section__eyebrow">Representation</p>
+          <h2 class="section__title">Vertex Displacement Field</h2>
+        </header>
+        <div class="prose">
+          <p>
+            VDF is the representation that lets LATO move from a surface signal to explicit topology.
+            <span class="formula-lead">For a mesh \(\mathcal{M}=(\mathbf{V},\mathbf{F})\), take a point \(\mathbf{p}\) sampled on a triangular face \(\mathbf{f}=[f_0,f_1,f_2]\).</span>
+            Instead of assigning a discrete vertex/edge/face label, LATO records the displacements from \(\mathbf{p}\) to the three vertices of that face.
+          </p>
+          <p>
+            This makes topology learnable as a dense continuous field: near-zero displacements localize vertices, while changes in the displacement triplet reveal edges between vertex pairs.
+            The resulting point feature is voxelized and pooled into T-Voxels for scalable generation.
+          </p>
+        </div>
+      </div>
+      <div class="formula-card" aria-label="Vertex Displacement Field formula">
+        <p class="formula-card__label">VDF definition</p>
+        <div class="equation">
+          \[
+          \mathcal{F}(\mathbf{p}) =
+          \left\{\mathbf{v}-\mathbf{p}\mid
+          \mathbf{v}\in
+          \{\mathbf{v}_{f_0},\mathbf{v}_{f_1},\mathbf{v}_{f_2}\}\right\},
+          \quad \mathbf{p}\in\mathbf{f}
+          \]
+        </div>
+        <p class="formula-card__note">
+          The VAE input at each sampled point is
+          \(\mathbf{x}_k=[\mathbf{p}_k,\mathcal{F}(\mathbf{p}_k),\mathbf{n}(\mathbf{p}_k)]\),
+          combining position, VDF offsets, and surface normal.
+        </p>
+        <div class="vdf-points">
+          <div>
+            <strong>Dense signal</strong>
+            <span>Every surface sample contributes vertex displacement supervision.</span>
+          </div>
+          <div>
+            <strong>Topology cue</strong>
+            <span>Vertex locations and edge boundaries emerge from the displacement field.</span>
+          </div>
+          <div>
+            <strong>Voxel-ready</strong>
+            <span>Point features are pooled into sparse topology-aware T-Voxels.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--plain" id="method">
+    <div class="container">
+      <header class="section__head section__head--center">
+        <p class="section__eyebrow">Pipeline</p>
+        <h2 class="section__title">Method</h2>
+        <p class="section__sub">LATO turns surface-anchored VDF samples into topology-aware T-Voxels, then decodes explicit vertices and edges through a sparse hierarchical pipeline.</p>
+      </header>
+
+      <figure class="figure figure--wide method-figure">
+        <img src="./static/images/pipeline.png" alt="LATO pipeline for mesh encoding, T-Voxel generation, and topology reconstruction">
+      </figure>
+
+      <div class="method-flow">
+        <article>
+          <span>Encode</span>
+          <p>Voxelize surface VDF samples with positions and normals, then compress the pooled signal into compact T-Voxels.</p>
+        </article>
+        <article>
+          <span>Decode</span>
+          <p>Subdivide and prune latent voxels to place vertices; a connection head queries T-Voxels to recover edges directly.</p>
+        </article>
+        <article>
+          <span>Generate</span>
+          <p>Use two-stage flow matching: synthesize sparse structure first, then generate topology features before explicit decoding.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--muted" id="city">
+    <div class="container">
+      <header class="section__head section__head--center">
+        <p class="section__eyebrow">Application</p>
+        <h2 class="section__title">City Synthesis</h2>
+        <p class="section__sub">LATO extends from object-level mesh generation to scene-scale urban synthesis by generating compositional block-wise building units.</p>
+      </header>
+
+      <figure class="figure figure--wide city-figure">
+        <img src="./static/images/city.png" alt="Scene-scale urban generation results produced by LATO">
+        <figcaption>
+          <strong>Scene-scale urban generation.</strong>
+          The structure model first synthesizes block-wise building envelopes, and detailed T-Voxel features then populate each unit into high-fidelity city blocks.
+        </figcaption>
+      </figure>
+
+      <div class="city-viewer-panel">
+        <div class="city-viewer-copy">
+          <span class="city-viewer-copy__tag">Interactive mesh</span>
+          <h3>Compositional Urban Meshes</h3>
+          <p>Block-wise building units are generated as sparse T-Voxels, then assembled into a larger explicit city mesh.</p>
+        </div>
+        <div id="city-viewer" class="city-viewer" aria-label="Interactive OBJ viewer for the generated city mesh">
+          <span class="city-viewer__loading">Loading city mesh...</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--plain" id="results">
+    <div class="container">
+      <header class="section__head section__head--center">
+        <p class="section__eyebrow">Experiments</p>
+        <h2 class="section__title">Results</h2>
+        <p class="section__sub">LATO produces explicit meshes with strong shape fidelity and more coherent topology across object and image-conditioned settings.</p>
+      </header>
+
+      <div class="result-block">
+        <div class="mesh-showcase">
+          <button type="button" class="icon-btn mesh-showcase__prev" id="obj-viewer-container-prev" aria-label="Previous examples" hidden>&lsaquo;</button>
+          <div class="mesh-showcase__pairs" id="obj-viewer-grid"></div>
+          <button type="button" class="icon-btn mesh-showcase__next" id="obj-viewer-container-next" aria-label="Next examples" hidden>&rsaquo;</button>
+        </div>
+        <p class="mesh-showcase__status" id="obj-viewer-container-label"></p>
+      </div>
+
+      <div class="result-grid">
+        <figure class="figure result-figure">
+          <figcaption>
+            <span>Geometry-conditioned generation</span>
+            LATO is compared with recent explicit mesh baselines under the same geometry-conditioned setting.
+          </figcaption>
+          <img src="./static/images/qua_cmp_ar.png" alt="Geometry-conditioned comparison between LATO and baseline methods">
+        </figure>
+        <figure class="figure result-figure">
+          <figcaption>
+            <span>Additional examples</span>
+            More geometry-conditioned results highlighting mesh completeness and topology quality.
+          </figcaption>
+          <img src="./static/images/more_results_cmp_ar.png" alt="Additional geometry-conditioned comparison examples for LATO">
+        </figure>
+      </div>
+
+      <div class="result-grid result-grid--supplemental">
+        <figure class="figure result-figure">
+          <figcaption>
+            <span>Image to 3D</span>
+            Image to 3D generation results.
+          </figcaption>
+          <img src="./static/images/img2mesh.png" alt="Image to 3D generation results">
+        </figure>
+        <figure class="figure result-figure">
+          <figcaption>
+            <span>Vertex number</span>
+            Effect of vertex number condition. As we increase the vertex number condition scaler cv, the model generates more vertices and triangles.
+          </figcaption>
+          <img src="./static/images/vertex_number.png" alt="Effect of vertex number condition on generated mesh complexity">
+        </figure>
+        <figure class="figure result-figure result-figure--wide inference-table-card">
+          <figcaption>
+            <span>Inference time</span>
+            Inference time comparison. The inference time evaluation is conducted on a single H100 GPU. LATO maintains rapid generation (3∼10s), whereas autoregressive methods exhibit prohibitive temporal scaling, often requiring minutes for high-fidelity outputs.
+          </figcaption>
+          <div id="inference-table" class="inference-explorer" aria-label="Interactive inference time visualization"></div>
+        </figure>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <p>LATO: 3D Mesh Flow Matching with Structured TOpology Preserving LAtents &middot; ICML 2026</p>
+    <div class="site-footer__links">
+      <a href="./static/paper/2603.06357v1.pdf">Paper</a>
+      <a href="https://arxiv.org/abs/2603.06357">arXiv</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
