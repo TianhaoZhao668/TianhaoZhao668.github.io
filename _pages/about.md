@@ -17,7 +17,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-My name is Tianhao Zhao(赵天豪), a PhD Student at the School of Computer Science and Technology, Huazhong University of Science and Technology, in the [HUST Media Lab](https://media.hust.edu.cn/index.htm), advised by [Prof. Wei Yang](https://weiyang-hust.github.io). My research interest includes 3D mesh generation and diffusion.
+My name is Tianhao Zhao (赵天豪). I am currently a Ph.D. student at the School of Computer Science and Technology, Huazhong University of Science and Technology (HUST), working in the [HUST Media Lab](https://media.hust.edu.cn/index.htm) under the supervision of [Prof. Wei Yang](https://weiyang-hust.github.io). Before that, I received my B.S. degree from the School of Civil and Hydraulic Engineering, HUST, in 2024. My research interests include 3D mesh generation and diffusion models.
 
 
 Apart from my research, I enjoy playing Valorant, where I often take on the role of the in-game leader (IGL)😂😂😂.
