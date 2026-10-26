@@ -9,10 +9,15 @@
             var totalCitation = data['citedby']
             var totalCitEle = document.getElementById('total_cit')
             if (totalCitEle) totalCitEle.innerHTML = totalCitation;
+            // match by Scholar paper id (data='user:pub') or, profile-independent, by title prefix (data-title='...')
+            var norm = s => (s || '').toLowerCase().replace(/[^a-z0-9]/g, '')
+            var pubs = Object.values(data['publications'])
             var citationEles = document.getElementsByClassName('show_paper_citations')
             Array.prototype.forEach.call(citationEles, element => {
                 var paperId = element.getAttribute('data')
-                var paper = data['publications'][paperId]
+                var title = norm(element.getAttribute('data-title'))
+                var paper = paperId ? data['publications'][paperId]
+                    : pubs.find(p => title && norm(p['bib']['title']).startsWith(title))
                 if (!paper) return;
                 element.innerHTML = '| Citations: ' + paper['num_citations'];
             });
