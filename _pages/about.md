@@ -36,7 +36,7 @@ Apart from my research, I enjoy playing Valorant, where I often take on the role
 
 Hang Long\*, **Tianhao Zhao**\*, Junkai Lin, Youjia Zhang, Huipeng Guo, Rendong Liang, Jiale Xu, Jozef Hladký, Matthias Nießner, Yuanming Hu, Wei Yang$\dagger$
 
-[**Paper**](https://arxiv.org/abs/2607.10623) \| [**Code**](https://github.com/LoHhhha/LATO.2)
+[**Paper**](https://arxiv.org/abs/2607.10623) \| [**Code**](https://github.com/LoHhhha/LATO.2) <a href="https://github.com/LoHhhha/LATO.2"><img src="https://img.shields.io/github/stars/LoHhhha/LATO.2?style=social" alt="GitHub stars" style="vertical-align: middle;"></a> <strong><span class='show_paper_citations' data='4lTCZH4AAAAJ:9yKSN-GCB0IC'></span></strong>
 -  We present LATO.2, a factorized flow matching framework that splits mesh generation into a vertex flow followed by a vertex-conditioned connectivity flow over a shared voxel scaffold, enabling part-wise high-resolution synthesis and topology-adaptive editing.
 </div>
 </div>
@@ -48,7 +48,7 @@ Hang Long\*, **Tianhao Zhao**\*, Junkai Lin, Youjia Zhang, Huipeng Guo, Rendong 
 
 **Tianhao Zhao**\*, Youjia Zhang\*, Hang Long, Jinshen Zhang, Wenbing Li, Yang Yang, Gongbo Zhang, Jozef Hladký, Matthias Nießner, Wei Yang$\dagger$
 
-[**Paper**](https://arxiv.org/pdf/2603.06357) \| [**Project Page**](https://tianhaozhao668.github.io/LATO/) \| [**Code**](https://github.com/TianhaoZhao668/LATO) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
+[**Paper**](https://arxiv.org/pdf/2603.06357) \| [**Project Page**](https://tianhaozhao668.github.io/LATO/) \| [**Code**](https://github.com/TianhaoZhao668/LATO) <a href="https://github.com/TianhaoZhao668/LATO"><img src="https://img.shields.io/github/stars/TianhaoZhao668/LATO?style=social" alt="GitHub stars" style="vertical-align: middle;"></a> <strong><span class='show_paper_citations' data='4lTCZH4AAAAJ:u5HHmVD_uO8C'></span></strong>
 -  We introduce LATO, a novel topology-preserving latent representation that enables scalable, flow matching-based synthesis of explicit 3D meshes.  
 </div>
 </div>
