@@ -29,6 +29,18 @@ Apart from my research, I enjoy playing Valorant, where I often take on the role
 
 # 📝 Publications 
 **Equal contribution⋆  Corresponding author$\dagger$**
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">arXiv 2026</div><img src='images/meshoctave.jpg' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[MeshOctave: Vertex Split-and-Rewire Cascades for Native Mesh Generation](https://arxiv.org/abs/2609.38985)
+
+Junkai Lin, **Tianhao Zhao**, Hang Long, Huipeng Guo, Jielei Zhang, Youjia Zhang, Jiale Xu, Wenbing Li, Rendong Liang, Jozef Hladký, Matthias Nießner, Yuanming Hu, Wei Yang$\dagger$
+
+[**Paper**](https://arxiv.org/abs/2609.38985) \| [**Project Page**](https://maymhappy.github.io/MeshOctave/) \| [**Code**](https://github.com/MayMhappy/MeshOctave) <a href="https://github.com/MayMhappy/MeshOctave"><img src="https://img.shields.io/github/stars/MayMhappy/MeshOctave?style=social" alt="GitHub stars" style="vertical-align: middle;"></a>
+-  We propose MeshOctave, a next-scale mesh generator that defines scales by dyadic grid resolutions and learns the inverse vertex split-and-rewire with a scale-conditioned discrete diffusion model, enabling parallel per-face refinement and adaptive resolution.
+</div>
+</div>
+
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">arXiv 2026</div><img src='images/lato2.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
@@ -36,7 +48,7 @@ Apart from my research, I enjoy playing Valorant, where I often take on the role
 
 Hang Long\*, **Tianhao Zhao**\*, Junkai Lin, Youjia Zhang, Huipeng Guo, Rendong Liang, Jiale Xu, Jozef Hladký, Matthias Nießner, Yuanming Hu, Wei Yang$\dagger$
 
-[**Paper**](https://arxiv.org/abs/2607.10623) \| [**Code**](https://github.com/LoHhhha/LATO.2) <a href="https://github.com/LoHhhha/LATO.2"><img src="https://img.shields.io/github/stars/LoHhhha/LATO.2?style=social" alt="GitHub stars" style="vertical-align: middle;"></a>
+[**Paper**](https://arxiv.org/abs/2607.10623) \| [**Project Page**](https://lohhhha.github.io/LATO.2/) \| [**Code**](https://github.com/LoHhhha/LATO.2) <a href="https://github.com/LoHhhha/LATO.2"><img src="https://img.shields.io/github/stars/LoHhhha/LATO.2?style=social" alt="GitHub stars" style="vertical-align: middle;"></a>
 -  We present LATO.2, a factorized flow matching framework that splits mesh generation into a vertex flow followed by a vertex-conditioned connectivity flow over a shared voxel scaffold, enabling part-wise high-resolution synthesis and topology-adaptive editing.
 </div>
 </div>
