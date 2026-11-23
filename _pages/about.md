@@ -20,7 +20,7 @@ redirect_from:
 My name is Tianhao Zhao (赵天豪). I am currently a Ph.D. student at the School of Computer Science and Technology, Huazhong University of Science and Technology (HUST), working in the [HUST Media Lab](https://media.hust.edu.cn/index.htm) under the supervision of [Prof. Wei Yang](https://weiyang-hust.github.io). Before that, I received my B.S. degree from the School of Civil and Hydraulic Engineering, HUST, in 2024. My research interests include 3D mesh generation and diffusion models.
 
 
-Apart from my research, I enjoy playing Valorant, where I often take on the role of the in-game leader (IGL)😂😂😂.
+Apart from my research, I enjoy playing Valorant, where I often take on the role of the in-game leader (IGL)😂😂😂. If you are interested in my research or in gaming, or simply want to chat, please feel free to [reach out to me](mailto:tianhao@hust.edu.cn)!
 <!-- My research interest includes neural machine translation and computer vision. I have published more than 100 papers at the top international AI conferences with total <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>). -->
 
 
